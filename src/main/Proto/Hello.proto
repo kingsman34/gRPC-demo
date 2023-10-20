@@ -1,0 +1,26 @@
+syntax="proto3";
+package loginRegistration;
+option java_multiple_files = true;
+service loginAndRegistration{
+  rpc Register(registration) returns (response);
+  rpc Login(login) returns (response);
+  rpc ChangePassword(changePassword) returns (response);
+}
+message registration{
+  string name=1;
+  string emailId=2;
+  string password=3;
+}
+message changePassword{
+  string emailId=1;
+  string oldPassword=2;
+  string newPassword=3;
+}
+
+message response{
+  string reply=1;
+}
+message login{
+  string emailId=1;
+  string password=2;
+}
